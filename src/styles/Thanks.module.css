@@ -1,0 +1,54 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    background-image: url('/bg2.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerThanks {
+    background: #0E492D;
+    box-shadow: 8px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    width: 50%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    text-align: center;
+    color: #D9D9D9;
+    font-size: 2rem;
+    font-family: 'Jost', sans-serif;
+}
+
+.description {
+    color: #ECD0B3;
+    font-size: 1.1rem;
+    font-family: 'Jost', sans-serif;
+    text-align: center;
+}
+
+.btnBack {
+    text-decoration: none;
+    margin: auto;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-family: 'Jost', sans-serif;
+    background: rgba(217, 217, 217, 0.01);
+    border: 1px solid #ECD0B3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    padding: 5px 8px;
+}
+
+@media screen and (max-width: 800px) {
+    .containerThanks {
+        width: 90%;
+        height: 60%;
+    }
+}

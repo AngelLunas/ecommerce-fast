@@ -1,0 +1,85 @@
+.cartPage {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('/bg2.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.containerActions {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    padding: 5%;
+    justify-content: space-between;
+}
+
+.products {
+    width: 40%;
+}
+
+.title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 1.9rem;
+}
+
+.total {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+
+.containerForm {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.formCart {
+    width: 50%;
+}
+
+.input {
+    padding: 15px 4px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 10px 0;
+}
+
+.input::placeholder {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.btnBuy {
+    width: 100%;
+    border: none;
+    height: 50px;
+    background-color: rgba(31, 214, 125, 0.795);
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+
+@media screen and (max-width: 800px) {
+    .containerActions {
+        flex-direction: column;
+    }
+
+    .products {
+        width: 100%;
+    }
+
+    .formCart {
+        width: 100%;
+    }
+
+    .containerForm {
+        width: 100%;
+    }
+}

@@ -1,0 +1,47 @@
+.containerCart {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-between;
+    border-radius: 12px;
+    padding: 5%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.text {
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family: 'Jost', sans-serif;
+}
+
+.btnDelete {
+    background: white;
+    border: 1px solid #ECD0B3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-weight: 300;
+    font-family: 'Jost', sans-serif;
+    margin-left: 20px;
+}
+
+.lastContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn {
+    background-color: beige;
+    height: 30px;
+    width: 30px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 0 4px;
+}

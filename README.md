@@ -1,38 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ecommerce fast buy
+Esta prueba, hecha de forma de ecommerce, está desarrollada sobre Next js, con ssr, el backend está conectado a MongoDb atlas, en donde se guardan los datos de los productos y de las ordenes realizadas. No integra pagos, se solicitan datos como el nombre, correo, celular y dirección al cliente para crear la orden con el detalle de los productos y su cantidad para posteriormente ser atendidas. Aún no implementa un panel administrativo pero sus bases están consolidadas para poder seguir con el desarrollo. La página se adapta a todos los dispositivos.
 
-## Getting Started
+### Home
 
-First, run the development server:
+![Banner home](public/banner1.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### Carrito
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Carrito de compras](public/banner2.png)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Pasos para hacer deploy:
+1. Subir a un repositorio en github todos los archivos del proyecto (excluyendo dependencias y variables de entorno)
+2. Crear una cuenta de vercel, y conectarla con la cuenta que alberga el repositorio de Github.
+3. Importar el repositorio en Vercel
+4. Una vez con el proyecto publicado, configurar las variables de entorno desde la vista del proyecto, configuración y variables de entorno (se pueden añadir manualmente o importar archivo .env)
+5. Cambiar rutas de peticiones a la api, por el dominio dado por vercel.

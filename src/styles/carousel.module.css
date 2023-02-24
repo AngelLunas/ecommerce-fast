@@ -1,0 +1,30 @@
+.carousel {
+    width: 100%;
+    height: 84vh;
+}
+
+.containerCarousel {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.containerProducts {
+    width: 90vw;
+    height: 100%;
+    display: inline-flex;
+    overflow-x: hidden;
+    flex-direction: row;
+}
+
+.lineRight {
+    transform: rotateY(180deg);
+}
+
+.carouselProducts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
