@@ -71,8 +71,7 @@ const Cart = () => {
             setErrors(formErrors);
             return;
         }
-        console.log(body);
-        const data = await fetch(`${process.env.APIpath}/api/order`, {
+        const data = await fetch(`/api/order`, {
             method: 'POST',
             body: JSON.stringify(body),
             headers: {
