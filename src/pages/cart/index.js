@@ -2,7 +2,7 @@ import { DataContext } from "Components/Context";
 import React, { useContext, useEffect, useState } from "react";
 import styles from '@/styles/cart.module.css'
 import Router from "next/router";
-import { renderProducts } from "./hooks";
+import { renderProducts } from "../../../Components/hooks/hooksCart";
 import Head from "next/head";
 
 const Cart = ({dataProducts}) => {
