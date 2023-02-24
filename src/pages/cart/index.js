@@ -65,7 +65,7 @@ const Cart = ({dataProducts}) => {
             return;
         }
         console.log(body);
-        const data = await fetch('http://localhost:3000/api/order', {
+        const data = await fetch(`${process.env.APIpath}/api/order`, {
             method: 'POST',
             body: JSON.stringify(body),
             headers: {
@@ -118,7 +118,7 @@ const Cart = ({dataProducts}) => {
 }
 
 export const getServerSideProps = async () => {
-    const data = await fetch('http://localhost:3000/api/products');
+    const data = await fetch(`${process.env.APIpath}/api/products`);
     const dataJson = await data.json();
     return {
       props: {
