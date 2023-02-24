@@ -6,7 +6,7 @@ import { renderProducts } from "../../../Components/hooks/hooksCart";
 import Head from "next/head";
 import useSWR from 'swr';
 
-const fetcher = (url) =>  fetch(url).then(res => res.json);
+const fetcher = (url) => fetch(url).then(res => res.json());
 
 const Cart = () => {
     const Data = useContext(DataContext);

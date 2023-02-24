@@ -4,7 +4,7 @@ import Carousel from 'Components/Carousel'
 import styles from '@/styles/main.module.css';
 import useSWR from 'swr';
 
-const fetcher = (url) =>  fetch(url).then(res => res.json);
+const fetcher = (url) => fetch(url).then(res => res.json());
 
 
 export default function Home() {
