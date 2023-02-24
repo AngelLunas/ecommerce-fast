@@ -5,7 +5,9 @@ import Router from "next/router";
 import { renderProducts } from "../../../Components/hooks/hooksCart";
 import Head from "next/head";
 
-const Cart = ({dataProducts}) => {
+const fetcher = (url) =>  fetch(url).then(res => res.json);
+
+const Cart = () => {
     const Data = useContext(DataContext);
     const [totalPrice, setTotalPrice] = useState(0);
     const [orders, setDataOrders] = useState([]);
@@ -17,11 +19,15 @@ const Cart = ({dataProducts}) => {
     });
     const [errors, setErrors] = useState([]);
 
+    const { data, error } = useSWR('/api/products/', fetcher);
+    if (!data) return <div>Loading...</div>
+    if (error) return <div>Ha ocurrido un error</div>
+
     useEffect(() => {
         let total = 0;
         const newDataOrders = [];
         for (let id of Data.cart) {
-            const product = dataProducts.find((element) => element._id === id);
+            const product = data.find((element) => element._id === id);
             if (product) {
                 total = total + product.price;
                 newDataOrders.push({id: product._id, quantity: 1}); 
@@ -29,7 +35,7 @@ const Cart = ({dataProducts}) => {
         }
         setTotalPrice(total);
         setDataOrders(newDataOrders);
-    }, [dataProducts, Data.cart]);
+    }, [data, Data.cart]);
 
     useEffect(() => {
         if (Data.cart.length === 0) {
@@ -93,7 +99,7 @@ const Cart = ({dataProducts}) => {
                         Resumen de tu orden
                     </span>
                     <div>
-                        { renderProducts(dataProducts, Data.cart, setTotalPrice, Data.setCart, setDataOrders, orders) }
+                        { renderProducts(data, Data.cart, setTotalPrice, Data.setCart, setDataOrders, orders) }
                     </div>
                     <div>
                         <span className={styles.total}>{ `Total: $${totalPrice}` }</span>
@@ -116,16 +122,5 @@ const Cart = ({dataProducts}) => {
         </>
     )
 }
-
-export const getServerSideProps = async () => {
-    const data = await fetch(`${process.env.APIpath}/api/products`);
-    const dataJson = await data.json();
-    return {
-      props: {
-        dataProducts: dataJson
-      }
-    }
-  }
-  
 
 export default Cart;

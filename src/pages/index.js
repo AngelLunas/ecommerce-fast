@@ -2,10 +2,17 @@ import Head from 'next/head'
 import Nav from 'Components/Nav'
 import Carousel from 'Components/Carousel'
 import styles from '@/styles/main.module.css';
-import ComponentContext, { DataContext } from 'Components/Context';
-import { useContext, useEffect } from 'react';
+import useSWR from 'swr';
 
-export default function Home({dataProducts}) {
+const fetcher = (url) =>  fetch(url).then(res => res.json);
+
+
+export default function Home() {
+
+  const { data, error } = useSWR('/api/products/', fetcher);
+  if (!data) return <div>Loading...</div>
+  if (error) return <div>Ha ocurrido un error</div>
+
   return (
     <>
       <Head>
@@ -16,19 +23,8 @@ export default function Home({dataProducts}) {
       </Head>
       <main className={styles.main}>
         <Nav/>
-        <Carousel dataProducts={dataProducts} />
+        <Carousel dataProducts={data} />
       </main>
     </>
   )
-}
-
-
-export const getServerSideProps = async () => {
-  const data = await fetch(`${process.env.APIpath}/api/products`);
-  const dataJson = await data.json();
-  return {
-    props: {
-      dataProducts: dataJson
-    }
-  }
 }
