@@ -10,6 +10,10 @@ Esta prueba, hecha de forma de ecommerce, está desarrollada sobre Next js, el b
 
 ![Carrito de compras](public/banner2.png)
 
+Credenciales para probar el modo administrador y así poder ver las ordenes en la pagina de '/cuenta'
+Correo: tester@gmail.com
+Contraseña: tester2321
+
 ## Pasos para hacer deploy:
 1. Subir a un repositorio en github todos los archivos del proyecto (excluyendo dependencias y variables de entorno)
 2. Crear una cuenta de vercel, y conectarla con la cuenta que alberga el repositorio de Github.

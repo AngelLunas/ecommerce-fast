@@ -14,7 +14,7 @@ export default async function Handler (req, res) {
         if (userExist) {
             return res.status(400).json({input: 'email', error: 'El correo electrónico ya existe'});
         };
-        req.body.role = 'admin';
+        req.body.role = 'user';
         const passHash = await encrypt(req.body.password);
         const newUser = new User(req.body);
         newUser.password = passHash;
