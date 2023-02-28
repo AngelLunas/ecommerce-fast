@@ -11,7 +11,9 @@ Esta prueba, hecha de forma de ecommerce, está desarrollada sobre Next js, el b
 ![Carrito de compras](public/banner2.png)
 
 Credenciales para probar el modo administrador y así poder ver las ordenes en la pagina de '/cuenta'
+
 Correo: tester@gmail.com
+
 Contraseña: tester2321
 
 ## Pasos para hacer deploy:
