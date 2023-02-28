@@ -16,7 +16,6 @@
 .categorys {
     display: flex;
     flex-direction: row;
-    width: 40%;
     justify-content: space-between;
 }
 
@@ -31,10 +30,16 @@
     font-size: 1.5rem;
     color: #000;
     cursor: pointer;
+    margin: 0 15px;
 }
 
 .cart {
     cursor: pointer;
+}
+
+.account {
+    cursor: pointer;
+    margin: 0 15px;
 }
 
 .elementsCart {
@@ -53,6 +58,20 @@
 .containerCart {
     display: flex;
     flex-direction: row;
+}
+
+.navLink {
+    text-decoration: none;
+}
+
+.accountModal {
+    position: absolute;
+    top: 15vh;
+    width: 200px;
+    height: 100px;
+    border: 1px solid #ECD0B3;
+    background-color: white;
+    box-shadow: 8px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 @media screen and (max-width: 500px) {

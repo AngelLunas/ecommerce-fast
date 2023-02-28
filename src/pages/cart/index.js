@@ -5,6 +5,8 @@ import Router from "next/router";
 import { renderProducts } from "../../../Components/hooks/hooksCart";
 import Head from "next/head";
 import useSWR from 'swr';
+import Load from "Components/Load";
+import { Oval } from "react-loading-icons";
 
 const fetcher = (url) => fetch(url).then(res => res.json());
 
@@ -19,30 +21,47 @@ const Cart = () => {
         number: ''
     });
     const [errors, setErrors] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [dataAuth, setDataAuth] = useState(false);
 
     const { data, error } = useSWR('/api/products/', fetcher);
-    if (!data) return <div>Loading...</div>
     if (error) return <div>Ha ocurrido un error</div>
 
-    useEffect(() => {
-        let total = 0;
-        const newDataOrders = [];
-        for (let id of Data.cart) {
-            const product = data.find((element) => element._id === id);
-            if (product) {
-                total = total + product.price;
-                newDataOrders.push({id: product._id, quantity: 1}); 
+    const priceAndGetEmail = async () => {
+        if (data && Data.cart) {
+            let total = 0;
+            const newDataOrders = [];
+            for (let id of Data.cart) {
+                const product = data.find((element) => element._id === id);
+                if (product) {
+                    total = total + product.price;
+                    newDataOrders.push({product: product._id, quantity: 1}); 
+                }
+            }
+            setTotalPrice(total);
+            setDataOrders(newDataOrders);
+
+            const response = await fetch('/api/auth/user/email');
+            if (response.status === 200) {
+                const dataResponse = await response.json();
+                setDataAuth(dataResponse);
+                setDataUser({...dataUser, email: dataResponse.email});
+                return;
             }
         }
-        setTotalPrice(total);
-        setDataOrders(newDataOrders);
+    }
+
+    useEffect(() => {
+         priceAndGetEmail();
     }, [data, Data.cart]);
 
     useEffect(() => {
         if (Data.cart.length === 0) {
             Router.push('/');
         }
-    }, [Data.cart])
+    }, [Data.cart]);
+
+    if (!data) return <Load></Load>
 
     const handleChange = (e) => {
         setDataUser({
@@ -53,6 +72,7 @@ const Cart = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         const body = {...dataUser, order: orders};
         const formErrors = [];
         if (dataUser.name.length <= 1) {
@@ -69,6 +89,7 @@ const Cart = () => {
         };
         if (formErrors.length >= 1) {
             setErrors(formErrors);
+            setLoading(false);
             return;
         }
         const data = await fetch(`/api/order`, {
@@ -80,7 +101,7 @@ const Cart = () => {
             }
         });
         const dataJson = await data.json();
-
+        setLoading(false);
         if (data.status === 201) {
             localStorage.removeItem('cart');
             Router.push('/gracias');
@@ -111,10 +132,16 @@ const Cart = () => {
                     </span>
                     <form className={styles.containerForm} onSubmit={onSubmit}>
                         <input type="text" placeholder="Tú nombre" className={styles.input} name="name" onChange={handleChange} style={errors.includes('name') ? {border: '1px solid red'} : null}></input>
-                        <input type='text' placeholder="Tü correo electrónico" className={styles.input} name='email' onChange={handleChange} style={errors.includes('email') ? {border: '1px solid red'} : null}></input>
+                        { dataAuth ? 
+                        <div className={styles.input}>
+                            { dataAuth.email }
+                        </div>
+                        :  
+                        <input type='text' placeholder="Tú correo electrónico" className={styles.input} name='email' onChange={handleChange} style={errors.includes('email') ? {border: '1px solid red'} : null}></input>
+                         }
                         <input type='number' placeholder="Tú número" className={styles.input} name='number' onChange={handleChange} style={errors.includes('number') ? {border: '1px solid red'} : null}></input>
                         <input type="text" placeholder="Tú dirección" className={styles.input} name='addres' onChange={handleChange} style={errors.includes('addres') ? {border: '1px solid red'} : null}></input>
-                        <input type="submit" className={styles.btnBuy} value='Comprar'></input>
+                        <button className={styles.btnBuy}>{loading ? <Oval width={25} height={25}/> : 'Ordenar'}</button>
                     </form>
                 </div>
             </div>

@@ -1,0 +1,27 @@
+.containerOrder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.container {
+    margin: 20px 0;
+}
+
+.status {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    font-family: 'Jost', sans-serif;
+    color: white;
+}
+
+.text {
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-family: 'Jost', sans-serif;
+    color: black;
+}
+

@@ -6,7 +6,7 @@ const ComponentContext = ({children}) => {
     const [section, setSection] = useState('all');
     const [cart, setCart] = useState([]);
     const [localCart, setLocalCart] = useState(false);
-
+    
     useEffect(() => {
         const local = localStorage.getItem('cart');
         if (local) {

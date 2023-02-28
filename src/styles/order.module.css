@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-between;
+    border-radius: 12px;
+    padding: 5%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family: 'Jost', sans-serif;
+}
+
+.dataProduct {
+    display: flex;
+    flex-direction: column;
+}

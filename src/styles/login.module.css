@@ -1,0 +1,67 @@
+.containerLogin {
+    width: 100%;
+    height: 100vh;
+    background-image: url('/bg2.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-family: 'Just Another Hand', cursive;
+    font-size: 2rem;
+    color: #000;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.container {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.input {
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 1px solid #ECD0B3;
+    outline: none;
+}
+
+.input::placeholder {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.btnLogin {
+    margin-top: 10px;
+    padding: 7px 0;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    background-color: #0E492D;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.error {
+    width: 100%;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 15px;
+}

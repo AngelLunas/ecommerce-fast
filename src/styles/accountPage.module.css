@@ -1,0 +1,80 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('/bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+}
+
+.dataAccount {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+    height: 300px;
+    justify-content: space-around;
+}
+
+.title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+    color: black;
+    margin: 0;
+}
+
+.containerOrders {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerOrdersColumn {
+    width: 70%;
+}
+
+.titleOrder {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+    color: black;
+}
+
+.dataText {
+    font-size: 1.2rem;
+    font-weight: 300;
+    font-family: 'Jost', sans-serif;
+    color: #000000;
+}
+
+.logout {
+    padding: 10px;
+    background-color: #dce196;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: black;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .dataAccount {
+        width: 100%;
+    }
+
+    .containerOrdersColumn {
+        width: 100%;
+    }
+}
