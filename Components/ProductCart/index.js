@@ -17,10 +17,11 @@ const ProductCart = ({name, price, srcImg, id, setTotalPrice, setCart, dataCart,
     useEffect(() => {
         if (dataOrders.length >= 0) {
             const newOrders = dataOrders.slice();
-            const indexProduct = newOrders.findIndex((element) => element.id === id);
+            const indexProduct = newOrders.findIndex((element) => element.product === id);
             if (indexProduct >= 0) {
                 newOrders[indexProduct].quantity = quantity;
                 setDataOrders(newOrders);
+                console.log(newOrders);
             }
         }
     }, [quantity]);
