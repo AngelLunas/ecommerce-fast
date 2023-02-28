@@ -1,7 +1,7 @@
 # Ecommerce fast buy
 Esta prueba, hecha de forma de ecommerce, está desarrollada sobre Next js, el backend está conectado a MongoDb atlas, en donde se guardan los datos de los productos y de las ordenes realizadas. No integra pagos, se solicitan datos como el nombre, correo, celular y dirección al cliente para crear la orden con el detalle de los productos y su cantidad para posteriormente ser atendidas. Aún no implementa un panel administrativo pero sus bases están consolidadas para poder seguir con el desarrollo. La página se adapta a todos los dispositivos.
 
-[Demo](https://ecommerce-fast-gromag9vb-angellunas.vercel.app/)
+[Demo](https://ecommerce-fast.vercel.app/)
 ### Home
 
 ![Banner home](public/banner1.png)
