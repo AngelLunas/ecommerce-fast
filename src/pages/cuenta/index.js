@@ -31,7 +31,6 @@ const Account = () => {
         }
     }
      
-    console.log(data);
     return (
         <>
         <Head>

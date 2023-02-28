@@ -8,7 +8,7 @@ export default async function Handler (req, res) {
         return res.status(404).json({msg: 'Inicie sesión', status: 'login'});
     }
     try {
-        const userEmail = verify(token, process.env.SECRET_WORD);
+        const userEmail = await verify(token, process.env.SECRET_WORD);
         const userData = await User.findOne({email: userEmail.email});
         if (userData.role === 'user') {
             const orderData = await Order.find({email: userEmail.email}).populate('order.product').exec();
